@@ -8,7 +8,7 @@ pipeline {
     }
     stage('k8s') {
       steps {
-        withKubeConfig(serverUrl: 'https://16.178.115.5:6443', credentialsId: 'admin', caCertificate: '/etc/kubernetes/ssl/ca.pem') {
+        withKubeConfig(serverUrl: 'http://16.178.115.5:8080', credentialsId: 'admin') {
           sh 'kubectl get pod'
         }
 
